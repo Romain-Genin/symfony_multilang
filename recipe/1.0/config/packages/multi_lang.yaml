@@ -1,0 +1,12 @@
+# MultiLangBundle - https://github.com/studioastra/multilang
+multi_lang:
+    default_locale: fr
+    # Enabled locales, in the order shown by the switcher
+    locales: [fr, en, es, de, it, pt, nl, ar, he, fa, ru, zh, ja, tr]
+    # Localized route ({_locale} prefix) used by the "/" redirect
+    home_route: app_home
+    detect_browser_language: true
+    load_default_translations: true
+    # cookie: { name: multilang_locale, lifetime: 31536000, samesite: lax }
+    # locale_overrides:
+    #     en: { flag: '🇺🇸' }

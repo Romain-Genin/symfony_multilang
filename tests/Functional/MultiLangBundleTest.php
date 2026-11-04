@@ -71,6 +71,21 @@ final class MultiLangBundleTest extends WebTestCase
         self::assertSame('http://localhost/fr/contact?ref=x', $crawler->filter('link[hreflang=x-default]')->attr('href'));
     }
 
+    public function testCustomisation(): void
+    {
+        $client = self::createClient();
+        $crawler = $client->request('GET', '/fr/');
+
+        // app template extending '@!MultiLang/...' and overriding one block
+        self::assertCount(5, $crawler->filter('#list .custom-marker'));
+        self::assertSame('JA', $crawler->filter('#list a[hreflang=ja]')->text());
+
+        // class props replace the default classes
+        self::assertSame('my-btn', $crawler->filter('#custom button')->attr('class'));
+        self::assertSame('my-active', $crawler->filter('#custom a[aria-current]')->attr('class'));
+        self::assertStringContainsString('var(--multilang-text', $crawler->filter('#custom a[hreflang=en]')->attr('class'));
+    }
+
     public function testRtlPage(): void
     {
         $client = self::createClient();

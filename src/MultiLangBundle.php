@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace StudioAstra\MultiLangBundle;
 
+use StudioAstra\MultiLangBundle\Command\InstallCommand;
 use StudioAstra\MultiLangBundle\Controller\LocaleController;
 use StudioAstra\MultiLangBundle\EventSubscriber\LocaleSubscriber;
 use StudioAstra\MultiLangBundle\Locale\LanguageCatalog;
@@ -186,5 +187,9 @@ final class MultiLangBundle extends AbstractBundle
             ])
             ->autoconfigure() // registers the #[AsTwigComponent] attribute
             ->share(false);
+
+        $services->set(InstallCommand::class)
+            ->args([param('kernel.project_dir'), $this->getPath()])
+            ->tag('console.command', ['command' => 'multilang:install']);
     }
 }

@@ -1,146 +1,161 @@
 {#
     MultiLang language switcher - Tailwind CSS + Alpine.js
-    <bdi> isolates each language name (RTL names inside LTR pages and vice versa).
+
+    Customisation, from the lightest to the most complete:
+      1. Colors  : CSS variables --multilang-* (see assets/multilang.css), e.g. :root { --multilang-accent: #e11d48; }
+      2. Classes : props buttonClass, menuClass, itemClass, itemActiveClass, selectClass, linkClass, linkActiveClass
+                   (they REPLACE the default classes of that element)
+      3. Markup  : templates/bundles/MultiLangBundle/components/LocaleSwitcher.html.twig
+                       {% extends '@!MultiLang/components/LocaleSwitcher.html.twig' %}
+                       {% block multilang_item %}...{% endblock %}
+                   (php bin/console multilang:install --template generates this file)
+
+    Notes: <bdi> isolates each language name (RTL names in LTR pages and vice versa).
     Utilities are logical (start/end, ms/me, ps/pe, text-start) so the component mirrors itself in RTL.
-    Override this template in templates/bundles/MultiLangBundle/components/LocaleSwitcher.html.twig
 #}
 {% set current = this.current %}
 {% set options = this.options %}
 {% set switcher_label = 'switcher.label'|trans({}, 'multilang') %}
 
-{% macro flag(language, show) %}
-    {%- if show and language.flag -%}
-        <span class="text-base leading-none" aria-hidden="true">{{ language.flag }}</span>
-    {%- endif -%}
-{% endmacro %}
+{# ---- Default classes (colors come from CSS variables, with fallbacks) ---- #}
+{% set button_class = buttonClass ?? 'inline-flex items-center gap-2 rounded-[var(--multilang-radius,0.5rem)] border border-[color:var(--multilang-border,#d1d5db)] bg-[color:var(--multilang-bg,#ffffff)] px-3 py-2 text-sm font-medium text-[color:var(--multilang-text,#374151)] shadow-sm transition-colors hover:bg-[color:var(--multilang-bg-hover,#f3f4f6)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--multilang-accent,#4f46e5)]' %}
+{% set menu_class = menuClass ?? 'max-h-80 min-w-[12rem] overflow-y-auto rounded-[var(--multilang-menu-radius,0.5rem)] border border-[color:var(--multilang-border,#d1d5db)] bg-[color:var(--multilang-bg,#ffffff)] py-1 shadow-lg focus:outline-none' %}
+{% set item_class = itemClass ?? 'flex w-full items-center gap-2 px-4 py-2 text-start text-sm text-[color:var(--multilang-text,#374151)] hover:bg-[color:var(--multilang-bg-hover,#f3f4f6)] focus:bg-[color:var(--multilang-bg-hover,#f3f4f6)] focus:outline-none' %}
+{% set item_active_class = itemActiveClass ?? 'flex w-full items-center gap-2 px-4 py-2 text-start text-sm font-semibold bg-[color:var(--multilang-accent-soft,#eef2ff)] text-[color:var(--multilang-accent,#4f46e5)] focus:outline-none' %}
+{% set select_class = selectClass ?? 'block w-full cursor-pointer appearance-none rounded-[var(--multilang-radius,0.5rem)] border border-[color:var(--multilang-border,#d1d5db)] bg-[color:var(--multilang-bg,#ffffff)] py-2 ps-3 pe-9 text-sm text-[color:var(--multilang-text,#374151)] shadow-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--multilang-accent,#4f46e5)]' %}
+{% set link_class = linkClass ?? 'inline-flex items-center gap-1.5 rounded px-1 py-0.5 text-[color:var(--multilang-muted,#6b7280)] transition-colors hover:text-[color:var(--multilang-text,#374151)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--multilang-accent,#4f46e5)]' %}
+{% set link_active_class = linkActiveClass ?? 'inline-flex items-center gap-1.5 rounded px-1 py-0.5 font-semibold text-[color:var(--multilang-accent,#4f46e5)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--multilang-accent,#4f46e5)]' %}
+{% set icon_class = 'h-4 w-4 shrink-0 text-[color:var(--multilang-muted,#6b7280)]' %}
 
 {% if variant == 'select' %}
-    {% set select_id = 'multilang-select-' ~ random() %}
-    <div {{ attributes.defaults({class: 'relative inline-block'}) }} x-data>
-        <label for="{{ select_id }}" class="sr-only">{{ switcher_label }}</label>
-        <select
-            id="{{ select_id }}"
-            x-on:change="window.location.href = $event.target.value"
-            class="block w-full cursor-pointer appearance-none rounded-lg border border-gray-300 bg-white py-2 ps-3 pe-9 text-sm text-gray-900 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
-        >
-            {% for option in options %}
-                <option value="{{ option.url }}" lang="{{ option.language.htmlLang }}"{% if option.current %} selected{% endif %}>
-                    {%- if showFlags and option.language.flag %}{{ option.language.flag }} {% endif %}{{ option.label -}}
-                </option>
-            {% endfor %}
-        </select>
-        <svg class="pointer-events-none absolute inset-y-0 end-0 me-3 h-full w-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
-        </svg>
-    </div>
-
-{% elseif variant == 'list' %}
-    <nav {{ attributes.defaults({class: 'text-sm'}) }} aria-label="{{ switcher_label }}">
-        <ul class="flex flex-wrap items-center gap-x-3 gap-y-1" role="list">
-            {% for option in options %}
-                <li>
-                    <a
-                        href="{{ option.url }}"
-                        hreflang="{{ option.language.htmlLang }}"
-                        {% if option.current %}aria-current="true"{% endif %}
-                        class="inline-flex items-center gap-1.5 rounded px-1 py-0.5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 {{ option.current ? 'font-semibold text-indigo-600 dark:text-indigo-400' : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' }}"
-                    >
-                        {{ _self.flag(option.language, showFlags) }}
-                        <bdi lang="{{ option.language.htmlLang }}">{{ option.label }}</bdi>
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    </nav>
-
-{% else %}
-    <div
-        {{ attributes.defaults({class: 'relative inline-block text-start'}) }}
-        x-data="{
-            open: false,
-            toggle() { this.open ? this.close() : this.show() },
-            show() {
-                this.open = true;
-                this.$nextTick(() => this.focusItem(Math.max(0, this.items().findIndex((el) => el.hasAttribute('aria-current')))));
-            },
-            close(focusButton = true) {
-                if (!this.open) return;
-                this.open = false;
-                if (focusButton) this.$refs.button.focus();
-            },
-            items() { return [...this.$refs.menu.querySelectorAll('[role=menuitem]')] },
-            focusItem(index) {
-                const items = this.items();
-                if (items.length) items[(index + items.length) % items.length].focus();
-            },
-            move(step) { this.focusItem(this.items().indexOf(document.activeElement) + step) },
-        }"
-        x-on:keydown.escape.prevent.stop="close()"
-        x-on:click.outside="close(false)"
-        x-on:focusout="if (!$el.contains($event.relatedTarget)) close(false)"
-    >
-        <button
-            type="button"
-            x-ref="button"
-            x-on:click="toggle()"
-            x-on:keydown.down.prevent="show()"
-            x-on:keydown.up.prevent="show()"
-            x-bind:aria-expanded="open.toString()"
-            aria-expanded="false"
-            aria-haspopup="menu"
-            aria-label="{{ 'switcher.current'|trans({'%language%': current.nativeName}, 'multilang') }}. {{ switcher_label }}"
-            class="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
-        >
-            <svg class="h-4 w-4 shrink-0 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18zm0 0c2.5-2.5 3.75-5.5 3.75-9S14.5 5.5 12 3m0 18c-2.5-2.5-3.75-5.5-3.75-9S9.5 5.5 12 3M3.5 9h17M3.5 15h17"/>
-            </svg>
-            {{ _self.flag(current, showFlags) }}
-            <bdi lang="{{ current.htmlLang }}">{{ this.label(current) }}</bdi>
-            <svg class="h-4 w-4 shrink-0 text-gray-400 transition-transform duration-150" x-bind:class="open && 'rotate-180'" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+    {% block multilang_select %}
+        {% set select_id = 'multilang-select-' ~ random() %}
+        <div {{ attributes.defaults({class: 'relative inline-block'}) }} x-data>
+            <label for="{{ select_id }}" class="sr-only">{{ switcher_label }}</label>
+            <select id="{{ select_id }}" x-on:change="window.location.href = $event.target.value" class="{{ select_class }}">
+                {% for option in options %}
+                    <option value="{{ option.url }}" lang="{{ option.language.htmlLang }}"{% if option.current %} selected{% endif %}>
+                        {%- block multilang_select_option -%}
+                            {%- if showFlags and option.language.flag %}{{ option.language.flag }} {% endif %}{{ option.label -}}
+                        {%- endblock -%}
+                    </option>
+                {% endfor %}
+            </select>
+            <svg class="pointer-events-none absolute inset-y-0 end-0 me-3 h-full w-4 text-[color:var(--multilang-muted,#6b7280)]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
             </svg>
-        </button>
+        </div>
+    {% endblock %}
 
-        <ul
-            x-ref="menu"
-            x-show="open"
-            x-cloak
-            x-transition:enter="transition ease-out duration-100"
-            x-transition:enter-start="opacity-0 scale-95"
-            x-transition:enter-end="opacity-100 scale-100"
-            x-transition:leave="transition ease-in duration-75"
-            x-transition:leave-start="opacity-100 scale-100"
-            x-transition:leave-end="opacity-0 scale-95"
-            x-on:keydown.down.prevent="move(1)"
-            x-on:keydown.up.prevent="move(-1)"
-            x-on:keydown.home.prevent="focusItem(0)"
-            x-on:keydown.end.prevent="focusItem(-1)"
-            x-on:keydown.tab="close(false)"
-            role="menu"
-            aria-label="{{ switcher_label }}"
-            style="display: none"
-            class="absolute z-50 max-h-80 min-w-[12rem] overflow-y-auto rounded-lg border border-gray-200 bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-none dark:border-gray-700 dark:bg-gray-800 {{ position == 'top' ? 'bottom-full mb-2 origin-bottom' : 'top-full mt-2 origin-top' }} {{ align == 'start' ? 'start-0' : 'end-0' }}"
+{% elseif variant == 'list' %}
+    {% block multilang_list %}
+        <nav {{ attributes.defaults({class: 'text-sm'}) }} aria-label="{{ switcher_label }}">
+            <ul class="flex flex-wrap items-center gap-x-3 gap-y-1" role="list">
+                {% for option in options %}
+                    <li>
+                        <a href="{{ option.url }}" hreflang="{{ option.language.htmlLang }}"{% if option.current %} aria-current="true"{% endif %} class="{{ option.current ? link_active_class : link_class }}">
+                            {%- block multilang_list_item -%}
+                                {% if showFlags and option.language.flag %}<span class="text-base leading-none" aria-hidden="true">{{ option.language.flag }}</span>{% endif %}
+                                <bdi lang="{{ option.language.htmlLang }}">{{ option.label }}</bdi>
+                            {%- endblock -%}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    {% endblock %}
+
+{% else %}
+    {% block multilang_dropdown %}
+        <div
+            {{ attributes.defaults({class: 'relative inline-block text-start'}) }}
+            x-data="{
+                open: false,
+                toggle() { this.open ? this.close() : this.show() },
+                show() {
+                    this.open = true;
+                    this.$nextTick(() => this.focusItem(Math.max(0, this.items().findIndex((el) => el.hasAttribute('aria-current')))));
+                },
+                close(focusButton = true) {
+                    if (!this.open) return;
+                    this.open = false;
+                    if (focusButton) this.$refs.button.focus();
+                },
+                items() { return [...this.$refs.menu.querySelectorAll('[role=menuitem]')] },
+                focusItem(index) {
+                    const items = this.items();
+                    if (items.length) items[(index + items.length) % items.length].focus();
+                },
+                move(step) { this.focusItem(this.items().indexOf(document.activeElement) + step) },
+            }"
+            x-on:keydown.escape.prevent.stop="close()"
+            x-on:click.outside="close(false)"
+            x-on:focusout="if (!$el.contains($event.relatedTarget)) close(false)"
         >
-            {% for option in options %}
-                <li role="none">
-                    <a
-                        href="{{ option.url }}"
-                        role="menuitem"
-                        tabindex="-1"
-                        hreflang="{{ option.language.htmlLang }}"
-                        {% if option.current %}aria-current="true"{% endif %}
-                        class="flex w-full items-center gap-2 px-4 py-2 text-start text-sm focus:outline-none {{ option.current ? 'bg-indigo-50 font-semibold text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-300' : 'text-gray-700 hover:bg-gray-100 focus:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 dark:focus:bg-gray-700' }}"
-                    >
-                        {{ _self.flag(option.language, showFlags) }}
-                        <bdi lang="{{ option.language.htmlLang }}">{{ option.label }}</bdi>
-                        {% if option.current %}
-                            <svg class="ms-auto h-4 w-4 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.58l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/>
-                            </svg>
-                        {% endif %}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
+            <button
+                type="button"
+                x-ref="button"
+                x-on:click="toggle()"
+                x-on:keydown.down.prevent="show()"
+                x-on:keydown.up.prevent="show()"
+                x-bind:aria-expanded="open.toString()"
+                aria-expanded="false"
+                aria-haspopup="menu"
+                aria-label="{{ 'switcher.current'|trans({'%language%': current.nativeName}, 'multilang') }}. {{ switcher_label }}"
+                class="{{ button_class }}"
+            >
+                {% block multilang_button %}
+                    {% block multilang_button_icon %}
+                        <svg class="{{ icon_class }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18zm0 0c2.5-2.5 3.75-5.5 3.75-9S14.5 5.5 12 3m0 18c-2.5-2.5-3.75-5.5-3.75-9S9.5 5.5 12 3M3.5 9h17M3.5 15h17"/>
+                        </svg>
+                    {% endblock %}
+                    {% if showFlags and current.flag %}<span class="text-base leading-none" aria-hidden="true">{{ current.flag }}</span>{% endif %}
+                    <bdi lang="{{ current.htmlLang }}">{{ this.label(current) }}</bdi>
+                    {% block multilang_button_chevron %}
+                        <svg class="{{ icon_class }} transition-transform duration-150" x-bind:class="open && 'rotate-180'" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+                        </svg>
+                    {% endblock %}
+                {% endblock %}
+            </button>
+
+            <ul
+                x-ref="menu"
+                x-show="open"
+                x-cloak
+                x-transition:enter="transition ease-out duration-100"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-75"
+                x-transition:leave-start="opacity-100 scale-100"
+                x-transition:leave-end="opacity-0 scale-95"
+                x-on:keydown.down.prevent="move(1)"
+                x-on:keydown.up.prevent="move(-1)"
+                x-on:keydown.home.prevent="focusItem(0)"
+                x-on:keydown.end.prevent="focusItem(-1)"
+                x-on:keydown.tab="close(false)"
+                role="menu"
+                aria-label="{{ switcher_label }}"
+                style="display: none"
+                class="absolute z-50 {{ position == 'top' ? 'bottom-full mb-2 origin-bottom' : 'top-full mt-2 origin-top' }} {{ align == 'start' ? 'start-0' : 'end-0' }} {{ menu_class }}"
+            >
+                {% for option in options %}
+                    <li role="none">
+                        <a href="{{ option.url }}" role="menuitem" tabindex="-1" hreflang="{{ option.language.htmlLang }}"{% if option.current %} aria-current="true"{% endif %} class="{{ option.current ? item_active_class : item_class }}">
+                            {%- block multilang_item -%}
+                                {% if showFlags and option.language.flag %}<span class="text-base leading-none" aria-hidden="true">{{ option.language.flag }}</span>{% endif %}
+                                <bdi lang="{{ option.language.htmlLang }}">{{ option.label }}</bdi>
+                                {% if option.current %}
+                                    <svg class="ms-auto h-4 w-4 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.58l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                {% endif %}
+                            {%- endblock -%}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endblock %}
 {% endif %}
