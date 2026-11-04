@@ -35,8 +35,7 @@ php bin/console multilang:install --locales=fr,en,ar --default=fr --template
 > **Avec le starter** [`romain-genin/symfony-starter`](https://packagist.org/packages/romain-genin/symfony-starter),
 > ne lancez pas `multilang:install` : le starter fournit déjà sa configuration (voir son README, « Modules optionnels »).
 
-> **Montée de version 1.x → 2.0** : le namespace PHP devient `RomainGenin\MultiLangBundle`
-> (remplacez `StudioAstra\MultiLangBundle` dans `config/bundles.php` et dans vos `use`).
+> **Montée de version 1.x → 2.0** : le namespace PHP devient `RomainGenin\MultiLangBundle`, voir le [CHANGELOG](CHANGELOG.md).
 
 ## 2. Configuration
 
