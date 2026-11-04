@@ -1,0 +1,6 @@
+# MultiLangBundle - multilang - العربية (ar)
+# Override any key in your app: translations/multilang.ar.yaml
+
+switcher:
+    label: "تغيير اللغة"
+    current: "اللغة الحالية: %language%"

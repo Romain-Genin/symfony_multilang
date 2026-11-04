@@ -1,0 +1,91 @@
+# MultiLangBundle - messages - 日本語 (ja)
+# Override any key in your app: translations/messages.ja.yaml
+
+nav:
+    home: "ホーム"
+    about: "私たちについて"
+    services: "サービス"
+    products: "製品"
+    blog: "ブログ"
+    contact: "お問い合わせ"
+    faq: "よくある質問"
+    menu: "メニュー"
+    open_menu: "メニューを開く"
+    close_menu: "メニューを閉じる"
+    skip_to_content: "コンテンツへスキップ"
+    search: "検索"
+
+search:
+    placeholder: "検索…"
+    no_results: "結果が見つかりません"
+    results_for: "「%query%」の検索結果"
+
+action:
+    submit: "送信"
+    send: "送信する"
+    cancel: "キャンセル"
+    save: "保存"
+    delete: "削除"
+    edit: "編集"
+    confirm: "確認"
+    back: "戻る"
+    next: "次へ"
+    previous: "前へ"
+    close: "閉じる"
+    read_more: "続きを読む"
+    learn_more: "詳しく見る"
+    see_all: "すべて表示"
+    download: "ダウンロード"
+    subscribe: "登録する"
+
+auth:
+    login: "ログイン"
+    logout: "ログアウト"
+    register: "新規登録"
+    my_account: "マイアカウント"
+    forgot_password: "パスワードをお忘れですか？"
+    remember_me: "ログイン状態を保持"
+
+form:
+    name: "氏名"
+    first_name: "名"
+    last_name: "姓"
+    email: "メールアドレス"
+    phone: "電話番号"
+    subject: "件名"
+    message: "メッセージ"
+    password: "パスワード"
+    required: "この項目は必須です。"
+    invalid_email: "有効なメールアドレスを入力してください。"
+    success: "メッセージを送信しました。"
+    error: "エラーが発生しました。もう一度お試しください。"
+
+footer:
+    legal_notice: "法的通知"
+    privacy_policy: "プライバシーポリシー"
+    terms: "利用規約"
+    cookie_policy: "Cookieポリシー"
+    sitemap: "サイトマップ"
+    copyright: "© %year% %company%. 無断転載を禁じます。"
+    follow_us: "フォローする"
+    newsletter_title: "ニュースレター"
+    newsletter_text: "最新情報をメールでお届けします。"
+
+cookies:
+    message: "当サイトでは、利便性向上のためにCookieを使用しています。"
+    accept: "すべて許可"
+    reject: "すべて拒否"
+    customize: "カスタマイズ"
+
+error:
+    404_title: "ページが見つかりません"
+    404_text: "お探しのページは存在しないか、移動した可能性があります。"
+    500_title: "サーバーエラー"
+    500_text: "予期しないエラーが発生しました。しばらくしてから再度お試しください。"
+    back_home: "ホームに戻る"
+
+common:
+    loading: "読み込み中…"
+    language: "言語"
+    yes: "はい"
+    no: "いいえ"

@@ -1,0 +1,91 @@
+# MultiLangBundle - messages - English (en)
+# Override any key in your app: translations/messages.en.yaml
+
+nav:
+    home: "Home"
+    about: "About"
+    services: "Services"
+    products: "Products"
+    blog: "Blog"
+    contact: "Contact"
+    faq: "FAQ"
+    menu: "Menu"
+    open_menu: "Open menu"
+    close_menu: "Close menu"
+    skip_to_content: "Skip to content"
+    search: "Search"
+
+search:
+    placeholder: "Search…"
+    no_results: "No results found"
+    results_for: "Results for \"%query%\""
+
+action:
+    submit: "Submit"
+    send: "Send"
+    cancel: "Cancel"
+    save: "Save"
+    delete: "Delete"
+    edit: "Edit"
+    confirm: "Confirm"
+    back: "Back"
+    next: "Next"
+    previous: "Previous"
+    close: "Close"
+    read_more: "Read more"
+    learn_more: "Learn more"
+    see_all: "See all"
+    download: "Download"
+    subscribe: "Subscribe"
+
+auth:
+    login: "Log in"
+    logout: "Log out"
+    register: "Sign up"
+    my_account: "My account"
+    forgot_password: "Forgot your password?"
+    remember_me: "Remember me"
+
+form:
+    name: "Name"
+    first_name: "First name"
+    last_name: "Last name"
+    email: "Email address"
+    phone: "Phone"
+    subject: "Subject"
+    message: "Message"
+    password: "Password"
+    required: "This field is required."
+    invalid_email: "Please enter a valid email address."
+    success: "Your message has been sent."
+    error: "An error occurred. Please try again."
+
+footer:
+    legal_notice: "Legal notice"
+    privacy_policy: "Privacy policy"
+    terms: "Terms and conditions"
+    cookie_policy: "Cookie policy"
+    sitemap: "Sitemap"
+    copyright: "© %year% %company%. All rights reserved."
+    follow_us: "Follow us"
+    newsletter_title: "Newsletter"
+    newsletter_text: "Get our latest news straight to your inbox."
+
+cookies:
+    message: "This website uses cookies to improve your experience."
+    accept: "Accept all"
+    reject: "Reject all"
+    customize: "Customize"
+
+error:
+    404_title: "Page not found"
+    404_text: "The page you are looking for does not exist or has been moved."
+    500_title: "Server error"
+    500_text: "An unexpected error occurred. Please try again later."
+    back_home: "Back to home"
+
+common:
+    loading: "Loading…"
+    language: "Language"
+    yes: "Yes"
+    no: "No"

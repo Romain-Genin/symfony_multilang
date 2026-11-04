@@ -1,0 +1,6 @@
+# MultiLangBundle - multilang - עברית (he)
+# Override any key in your app: translations/multilang.he.yaml
+
+switcher:
+    label: "החלפת שפה"
+    current: "השפה הנוכחית: %language%"

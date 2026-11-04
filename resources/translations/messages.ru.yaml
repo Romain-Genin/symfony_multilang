@@ -1,0 +1,91 @@
+# MultiLangBundle - messages - Русский (ru)
+# Override any key in your app: translations/messages.ru.yaml
+
+nav:
+    home: "Главная"
+    about: "О нас"
+    services: "Услуги"
+    products: "Продукты"
+    blog: "Блог"
+    contact: "Контакты"
+    faq: "Частые вопросы"
+    menu: "Меню"
+    open_menu: "Открыть меню"
+    close_menu: "Закрыть меню"
+    skip_to_content: "Перейти к содержанию"
+    search: "Поиск"
+
+search:
+    placeholder: "Поиск…"
+    no_results: "Ничего не найдено"
+    results_for: "Результаты по запросу «%query%»"
+
+action:
+    submit: "Отправить"
+    send: "Отправить"
+    cancel: "Отмена"
+    save: "Сохранить"
+    delete: "Удалить"
+    edit: "Изменить"
+    confirm: "Подтвердить"
+    back: "Назад"
+    next: "Далее"
+    previous: "Предыдущий"
+    close: "Закрыть"
+    read_more: "Читать далее"
+    learn_more: "Подробнее"
+    see_all: "Смотреть все"
+    download: "Скачать"
+    subscribe: "Подписаться"
+
+auth:
+    login: "Войти"
+    logout: "Выйти"
+    register: "Регистрация"
+    my_account: "Мой аккаунт"
+    forgot_password: "Забыли пароль?"
+    remember_me: "Запомнить меня"
+
+form:
+    name: "Имя"
+    first_name: "Имя"
+    last_name: "Фамилия"
+    email: "Электронная почта"
+    phone: "Телефон"
+    subject: "Тема"
+    message: "Сообщение"
+    password: "Пароль"
+    required: "Это поле обязательно."
+    invalid_email: "Введите корректный адрес электронной почты."
+    success: "Ваше сообщение отправлено."
+    error: "Произошла ошибка. Попробуйте ещё раз."
+
+footer:
+    legal_notice: "Правовая информация"
+    privacy_policy: "Политика конфиденциальности"
+    terms: "Условия использования"
+    cookie_policy: "Политика использования cookie"
+    sitemap: "Карта сайта"
+    copyright: "© %year% %company%. Все права защищены."
+    follow_us: "Мы в соцсетях"
+    newsletter_title: "Рассылка"
+    newsletter_text: "Получайте наши последние новости на электронную почту."
+
+cookies:
+    message: "Этот сайт использует файлы cookie для улучшения работы."
+    accept: "Принять все"
+    reject: "Отклонить все"
+    customize: "Настроить"
+
+error:
+    404_title: "Страница не найдена"
+    404_text: "Запрашиваемая страница не существует или была перемещена."
+    500_title: "Ошибка сервера"
+    500_text: "Произошла непредвиденная ошибка. Повторите попытку позже."
+    back_home: "На главную"
+
+common:
+    loading: "Загрузка…"
+    language: "Язык"
+    yes: "Да"
+    no: "Нет"

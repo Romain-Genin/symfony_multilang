@@ -1,0 +1,6 @@
+# MultiLangBundle - multilang - 日本語 (ja)
+# Override any key in your app: translations/multilang.ja.yaml
+
+switcher:
+    label: "言語を変更"
+    current: "現在の言語：%language%"

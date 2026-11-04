@@ -1,0 +1,91 @@
+# MultiLangBundle - messages - العربية (ar)
+# Override any key in your app: translations/messages.ar.yaml
+
+nav:
+    home: "الرئيسية"
+    about: "من نحن"
+    services: "الخدمات"
+    products: "المنتجات"
+    blog: "المدونة"
+    contact: "اتصل بنا"
+    faq: "الأسئلة الشائعة"
+    menu: "القائمة"
+    open_menu: "فتح القائمة"
+    close_menu: "إغلاق القائمة"
+    skip_to_content: "تخطَّ إلى المحتوى"
+    search: "بحث"
+
+search:
+    placeholder: "ابحث…"
+    no_results: "لا توجد نتائج"
+    results_for: "نتائج البحث عن «%query%»"
+
+action:
+    submit: "إرسال"
+    send: "إرسال"
+    cancel: "إلغاء"
+    save: "حفظ"
+    delete: "حذف"
+    edit: "تعديل"
+    confirm: "تأكيد"
+    back: "رجوع"
+    next: "التالي"
+    previous: "السابق"
+    close: "إغلاق"
+    read_more: "اقرأ المزيد"
+    learn_more: "اعرف المزيد"
+    see_all: "عرض الكل"
+    download: "تنزيل"
+    subscribe: "اشترك"
+
+auth:
+    login: "تسجيل الدخول"
+    logout: "تسجيل الخروج"
+    register: "إنشاء حساب"
+    my_account: "حسابي"
+    forgot_password: "هل نسيت كلمة المرور؟"
+    remember_me: "تذكرني"
+
+form:
+    name: "الاسم"
+    first_name: "الاسم الأول"
+    last_name: "اسم العائلة"
+    email: "البريد الإلكتروني"
+    phone: "رقم الهاتف"
+    subject: "الموضوع"
+    message: "الرسالة"
+    password: "كلمة المرور"
+    required: "هذا الحقل مطلوب."
+    invalid_email: "يرجى إدخال بريد إلكتروني صالح."
+    success: "تم إرسال رسالتك بنجاح."
+    error: "حدث خطأ. يرجى المحاولة مرة أخرى."
+
+footer:
+    legal_notice: "إشعار قانوني"
+    privacy_policy: "سياسة الخصوصية"
+    terms: "الشروط والأحكام"
+    cookie_policy: "سياسة ملفات تعريف الارتباط"
+    sitemap: "خريطة الموقع"
+    copyright: "© %year% %company%. جميع الحقوق محفوظة."
+    follow_us: "تابعونا"
+    newsletter_title: "النشرة الإخبارية"
+    newsletter_text: "احصل على آخر أخبارنا مباشرة في بريدك الإلكتروني."
+
+cookies:
+    message: "يستخدم هذا الموقع ملفات تعريف الارتباط لتحسين تجربتك."
+    accept: "قبول الكل"
+    reject: "رفض الكل"
+    customize: "تخصيص"
+
+error:
+    404_title: "الصفحة غير موجودة"
+    404_text: "الصفحة التي تبحث عنها غير موجودة أو تم نقلها."
+    500_title: "خطأ في الخادم"
+    500_text: "حدث خطأ غير متوقع. يرجى المحاولة لاحقًا."
+    back_home: "العودة إلى الرئيسية"
+
+common:
+    loading: "جارٍ التحميل…"
+    language: "اللغة"
+    yes: "نعم"
+    no: "لا"

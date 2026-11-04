@@ -1,0 +1,41 @@
+{
+    "name": "studioastra/multilang-bundle",
+    "description": "Symfony bundle for multilingual sites: pre-filled translations (14 languages), LTR/RTL handling, locale-prefixed URLs and a Tailwind + Alpine.js language switcher Twig component.",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "keywords": ["symfony", "bundle", "i18n", "translation", "locale", "rtl", "twig-component", "tailwind", "alpinejs"],
+    "require": {
+        "php": ">=8.2",
+        "symfony/config": "^6.4 || ^7.0",
+        "symfony/dependency-injection": "^6.4 || ^7.0",
+        "symfony/framework-bundle": "^6.4 || ^7.0",
+        "symfony/http-foundation": "^6.4 || ^7.0",
+        "symfony/http-kernel": "^6.4 || ^7.0",
+        "symfony/routing": "^6.4 || ^7.0",
+        "symfony/translation": "^6.4 || ^7.0",
+        "symfony/twig-bundle": "^6.4 || ^7.0",
+        "symfony/ux-twig-component": "^2.13",
+        "symfony/yaml": "^6.4 || ^7.0",
+        "twig/twig": "^3.8"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5 || ^11.0",
+        "symfony/browser-kit": "^6.4 || ^7.0",
+        "symfony/css-selector": "^6.4 || ^7.0",
+        "symfony/dom-crawler": "^6.4 || ^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "StudioAstra\\MultiLangBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "StudioAstra\\MultiLangBundle\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable"
+}

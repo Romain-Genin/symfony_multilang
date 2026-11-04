@@ -1,0 +1,6 @@
+# MultiLangBundle - multilang - 中文 (zh)
+# Override any key in your app: translations/multilang.zh.yaml
+
+switcher:
+    label: "切换语言"
+    current: "当前语言：%language%"

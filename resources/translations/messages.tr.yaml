@@ -1,0 +1,91 @@
+# MultiLangBundle - messages - Türkçe (tr)
+# Override any key in your app: translations/messages.tr.yaml
+
+nav:
+    home: "Ana Sayfa"
+    about: "Hakkımızda"
+    services: "Hizmetler"
+    products: "Ürünler"
+    blog: "Blog"
+    contact: "İletişim"
+    faq: "Sıkça Sorulan Sorular"
+    menu: "Menü"
+    open_menu: "Menüyü aç"
+    close_menu: "Menüyü kapat"
+    skip_to_content: "İçeriğe geç"
+    search: "Ara"
+
+search:
+    placeholder: "Ara…"
+    no_results: "Sonuç bulunamadı"
+    results_for: "\"%query%\" için sonuçlar"
+
+action:
+    submit: "Gönder"
+    send: "Gönder"
+    cancel: "İptal"
+    save: "Kaydet"
+    delete: "Sil"
+    edit: "Düzenle"
+    confirm: "Onayla"
+    back: "Geri"
+    next: "Sonraki"
+    previous: "Önceki"
+    close: "Kapat"
+    read_more: "Devamını oku"
+    learn_more: "Daha fazla bilgi"
+    see_all: "Tümünü gör"
+    download: "İndir"
+    subscribe: "Abone ol"
+
+auth:
+    login: "Giriş yap"
+    logout: "Çıkış yap"
+    register: "Kayıt ol"
+    my_account: "Hesabım"
+    forgot_password: "Şifrenizi mi unuttunuz?"
+    remember_me: "Beni hatırla"
+
+form:
+    name: "Ad Soyad"
+    first_name: "Ad"
+    last_name: "Soyad"
+    email: "E-posta adresi"
+    phone: "Telefon"
+    subject: "Konu"
+    message: "Mesaj"
+    password: "Şifre"
+    required: "Bu alan zorunludur."
+    invalid_email: "Lütfen geçerli bir e-posta adresi girin."
+    success: "Mesajınız gönderildi."
+    error: "Bir hata oluştu. Lütfen tekrar deneyin."
+
+footer:
+    legal_notice: "Yasal uyarı"
+    privacy_policy: "Gizlilik politikası"
+    terms: "Kullanım koşulları"
+    cookie_policy: "Çerez politikası"
+    sitemap: "Site haritası"
+    copyright: "© %year% %company%. Tüm hakları saklıdır."
+    follow_us: "Bizi takip edin"
+    newsletter_title: "Bülten"
+    newsletter_text: "En son haberlerimizi doğrudan e-posta kutunuza alın."
+
+cookies:
+    message: "Bu web sitesi deneyiminizi iyileştirmek için çerezler kullanır."
+    accept: "Tümünü kabul et"
+    reject: "Tümünü reddet"
+    customize: "Özelleştir"
+
+error:
+    404_title: "Sayfa bulunamadı"
+    404_text: "Aradığınız sayfa mevcut değil veya taşınmış."
+    500_title: "Sunucu hatası"
+    500_text: "Beklenmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+    back_home: "Ana sayfaya dön"
+
+common:
+    loading: "Yükleniyor…"
+    language: "Dil"
+    yes: "Evet"
+    no: "Hayır"
