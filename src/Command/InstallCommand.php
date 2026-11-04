@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace StudioAstra\MultiLangBundle\Command;
+namespace RomainGenin\MultiLangBundle\Command;
 
-use StudioAstra\MultiLangBundle\Locale\LanguageCatalog;
+use RomainGenin\MultiLangBundle\Locale\LanguageCatalog;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -102,8 +102,8 @@ final class InstallCommand extends Command
         $io->section('Next steps');
         $io->listing([
             'Tailwind v4 - in <info>assets/styles/app.css</info>:'
-                ."\n  <comment>@source \"../../vendor/studioastra/multilang-bundle/templates\";</comment>"
-                ."\n  <comment>@import \"../../vendor/studioastra/multilang-bundle/assets/multilang.css\";</comment>"
+                ."\n  <comment>@source \"../../vendor/romain-genin/symfony-multilang-bundle/templates\";</comment>"
+                ."\n  <comment>@import \"../../vendor/romain-genin/symfony-multilang-bundle/assets/multilang.css\";</comment>"
                 ."\n  (Tailwind v3: add the templates folder to \"content\" in tailwind.config.js)",
             'Alpine.js: <info>php bin/console importmap:require alpinejs</info>, then <info>Alpine.start()</info> in assets/app.js',
             'Layout: <info><html {{ multilang_html_attributes() }}></info> and <info><twig:MultiLang:LocaleSwitcher /></info> in your header/footer',

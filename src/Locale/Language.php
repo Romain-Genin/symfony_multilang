@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace StudioAstra\MultiLangBundle\Locale;
+namespace RomainGenin\MultiLangBundle\Locale;
 
 /**
  * Immutable description of an enabled locale.

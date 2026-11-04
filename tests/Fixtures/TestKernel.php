@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace StudioAstra\MultiLangBundle\Tests\Fixtures;
+namespace RomainGenin\MultiLangBundle\Tests\Fixtures;
 
-use StudioAstra\MultiLangBundle\MultiLangBundle;
+use RomainGenin\MultiLangBundle\MultiLangBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Bundle\TwigBundle\TwigBundle;

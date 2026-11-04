@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - php: '8.2'
+            symfony: '6.4.*'
+          - php: '8.3'
+            symfony: '7.*'
+          - php: '8.4'
+            symfony: '7.*'
+          - php: '8.4'
+            symfony: '8.*'
+          - php: '8.5'
+            symfony: '8.*'
+    steps:
+      - uses: actions/checkout@v5
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: intl
+          tools: composer, flex
+      - name: Validate composer.json
+        run: composer validate --strict
+      - name: Install dependencies
+        env:
+          SYMFONY_REQUIRE: ${{ matrix.symfony }}
+        run: composer update --no-interaction --prefer-dist
+      - run: vendor/bin/phpunit

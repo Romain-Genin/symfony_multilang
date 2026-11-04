@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace StudioAstra\MultiLangBundle\Controller;
+namespace RomainGenin\MultiLangBundle\Controller;
 
-use StudioAstra\MultiLangBundle\EventSubscriber\LocaleSubscriber;
-use StudioAstra\MultiLangBundle\Locale\LocaleRegistry;
-use StudioAstra\MultiLangBundle\Locale\LocaleResolver;
+use RomainGenin\MultiLangBundle\EventSubscriber\LocaleSubscriber;
+use RomainGenin\MultiLangBundle\Locale\LocaleRegistry;
+use RomainGenin\MultiLangBundle\Locale\LocaleResolver;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

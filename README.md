@@ -8,14 +8,14 @@ Bundle Symfony pour les sites multilingues :
 - **URLs préfixées** (`/fr/contact`, `/ar/contact`) + **cookie** qui retient le choix + détection `Accept-Language` à la première visite
 - Balises SEO `hreflang` générées automatiquement
 
-Prérequis : PHP 8.2+, Symfony 6.4 ou 7.x, `symfony/ux-twig-component`.
+Prérequis : PHP 8.2+, Symfony 6.4, 7.x ou 8.x, `symfony/ux-twig-component` 2.13+ ou 3.x (Symfony 8 et UX 3 demandent PHP 8.4).
 
 ---
 
 ## 1. Installation
 
 ```bash
-composer require studioastra/multilang-bundle
+composer require romain-genin/symfony-multilang-bundle
 php bin/console multilang:install
 ```
 
@@ -32,9 +32,10 @@ Elle ne touche jamais un fichier existant, sauf avec `--force`.
 php bin/console multilang:install --locales=fr,en,ar --default=fr --template
 ```
 
-> Tant que le package n'est pas publié sur Packagist, déclarez d'abord le dépôt :
-> `composer config repositories.multilang vcs https://github.com/studioastra/multilang`
-> puis `composer require studioastra/multilang-bundle:dev-main`.
+> Site existant (par exemple créé avec [`romain-genin/symfony-starter`](https://packagist.org/packages/romain-genin/symfony-starter)) :
+> voir [§ 8. Brancher sur un site existant](#8-brancher-sur-un-site-existant).
+
+> **Montée de version 1.x → 2.0** : le namespace PHP devient `RomainGenin\MultiLangBundle`, voir le [CHANGELOG](CHANGELOG.md).
 
 ## 2. Configuration
 
@@ -103,10 +104,10 @@ controllers:
 
 ```css
 @import "tailwindcss";
-@source "../../vendor/studioastra/multilang-bundle/templates";
+@source "../../vendor/romain-genin/symfony-multilang-bundle/templates";
 
 /* optionnel : thème (mode sombre + variables documentées) */
-@import "../../vendor/studioastra/multilang-bundle/assets/multilang.css";
+@import "../../vendor/romain-genin/symfony-multilang-bundle/assets/multilang.css";
 ```
 
 Si vous n'importez pas `multilang.css`, ajoutez au moins `[x-cloak] { display: none !important; }`.
@@ -117,7 +118,7 @@ Si vous n'importez pas `multilang.css`, ajoutez au moins `[x-cloak] { display: n
 content: [
     './assets/**/*.js',
     './templates/**/*.html.twig',
-    './vendor/studioastra/multilang-bundle/templates/**/*.html.twig',
+    './vendor/romain-genin/symfony-multilang-bundle/templates/**/*.html.twig',
 ],
 ```
 
@@ -166,7 +167,7 @@ Les variantes `dropdown` et `select` ont besoin d'Alpine. La variante `list` fon
     <main id="main">{% block body %}{% endblock %}</main>
 
     <footer class="flex flex-wrap items-center justify-between gap-4 border-t px-6 py-6 text-sm">
-        <p>{{ 'footer.copyright'|trans({'%year%': 'now'|date('Y'), '%company%': 'Studio Astra'}) }}</p>
+        <p>{{ 'footer.copyright'|trans({'%year%': 'now'|date('Y'), '%company%': 'Mon entreprise'}) }}</p>
         <twig:MultiLang:LocaleSwitcher position="top" align="start" />
         {# ou : <twig:MultiLang:LocaleSwitcher variant="list" display="code" /> #}
     </footer>
@@ -324,7 +325,43 @@ nav:
 
 **Ajouter une langue** : ajoutez son code à `multi_lang.locales` (par exemple `pl` ou `pt_BR`) et créez `translations/messages.pl.yaml`. Le nom natif, le drapeau et le sens d'écriture viennent du catalogue intégré, qui couvre une trentaine de langues ; sinon, renseignez-les avec `locale_overrides`.
 
-## 8. Tests
+## 8. Brancher sur un site existant
+
+Le bundle ne suppose rien de votre application. Pour un site déjà construit (par exemple
+[`romain-genin/symfony-starter`](https://packagist.org/packages/romain-genin/symfony-starter), monolingue français avec
+ses textes en clés de traduction), la marche à suivre est :
+
+1. **Installer** : `composer require romain-genin/symfony-multilang-bundle`, puis
+   `php bin/console multilang:install --locales=fr,en --default=fr`. Toutes vos routes de `src/Controller/`
+   sont alors préfixées par `/{_locale}`.
+2. **Garder certaines routes à la racine** (`sitemap.xml`, `robots.txt`…) : sortez-les de l'import préfixé dans
+   `config/routes.yaml`. Les routes de bundles importées à part, comme EasyAdmin, ne sont pas préfixées.
+
+   ```yaml
+   seo:
+       resource: ../src/Controller/SeoController.php
+       type: attribute
+   controllers:
+       resource: ../src/Controller/
+       type: attribute
+       exclude: ../src/Controller/SeoController.php
+       prefix: /{_locale}
+       requirements: { _locale: '%multilang.locales_requirement%' }
+   ```
+3. **Gabarit** (`templates/base.html.twig`) : remplacez `<html lang="…">` par `<html {{ multilang_html_attributes() }}>`,
+   ajoutez `{{ multilang_alternate_links() }}` dans `<head>`, et placez `<twig:MultiLang:LocaleSwitcher />` dans
+   l'en-tête (et/ou `variant="list"` dans le menu mobile, `position="top"` dans le pied de page). Voir [§ 5](#5-utilisation-dans-twig).
+4. **Tailwind** : ajoutez `@source "../../vendor/romain-genin/symfony-multilang-bundle/templates";` (voir [§ 4](#4-tailwind-css--alpinejs)).
+5. **Sécurité** : les chemins de `access_control` portent maintenant la langue, par exemple
+   `- { path: '^/[a-z]{2}/mon-compte', roles: ROLE_USER }`. Les `login_path` / `default_target_path` exprimés en
+   noms de route continuent de fonctionner.
+6. **Traductions** : un fichier `translations/messages.<code>.yaml` par langue activée. Les clés génériques du bundle
+   (`nav.*`, `auth.*`, `action.*`, `form.*`, `footer.*`, `cookies.*`, `error.*`…) sont déjà traduites dans 14 langues ;
+   vos propres clés l'emportent toujours.
+7. **Optionnel** : un sitemap avec une entrée par langue (`multilang_locales()` / `multilang.locales`) et `og:locale`
+   (`multilang_current().htmlLang`).
+
+## 9. Tests
 
 ```bash
 composer install
