@@ -4,7 +4,7 @@
  * Optional: the component works without this file (light colors by default).
  * Import it to get the dark mode, then override any variable after the import:
  *
- *     @import "../../vendor/studioastra/multilang-bundle/assets/multilang.css";
+ *     @import "../../vendor/romain-genin/symfony-multilang-bundle/assets/multilang.css";
  *     :root { --multilang-accent: #e11d48; --multilang-radius: 9999px; }
  */
 :root {

@@ -1,4 +1,4 @@
-# MultiLangBundle - https://github.com/studioastra/multilang
+# MultiLangBundle - https://packagist.org/packages/romain-genin/symfony-multilang-bundle
 multi_lang:
     default_locale: fr
     # Enabled locales, in the order shown by the switcher

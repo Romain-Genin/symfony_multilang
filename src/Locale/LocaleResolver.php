@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace StudioAstra\MultiLangBundle\Locale;
+namespace RomainGenin\MultiLangBundle\Locale;
 
 use Symfony\Component\HttpFoundation\Request;
 

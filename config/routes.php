@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use StudioAstra\MultiLangBundle\Controller\LocaleController;
+use RomainGenin\MultiLangBundle\Controller\LocaleController;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
 /*

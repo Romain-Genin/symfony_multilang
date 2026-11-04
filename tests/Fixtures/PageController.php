@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace StudioAstra\MultiLangBundle\Tests\Fixtures;
+namespace RomainGenin\MultiLangBundle\Tests\Fixtures;
 
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;

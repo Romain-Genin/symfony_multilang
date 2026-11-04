@@ -8,14 +8,14 @@ Bundle Symfony pour les sites multilingues :
 - **URLs préfixées** (`/fr/contact`, `/ar/contact`) + **cookie** qui retient le choix + détection `Accept-Language` à la première visite
 - Balises SEO `hreflang` générées automatiquement
 
-Prérequis : PHP 8.2+, Symfony 6.4 ou 7.x, `symfony/ux-twig-component`.
+Prérequis : PHP 8.2+, Symfony 6.4, 7.x ou 8.x, `symfony/ux-twig-component` 2.13+ ou 3.x (Symfony 8 et UX 3 demandent PHP 8.4).
 
 ---
 
 ## 1. Installation
 
 ```bash
-composer require studioastra/multilang-bundle
+composer require romain-genin/symfony-multilang-bundle
 php bin/console multilang:install
 ```
 
@@ -32,9 +32,11 @@ Elle ne touche jamais un fichier existant, sauf avec `--force`.
 php bin/console multilang:install --locales=fr,en,ar --default=fr --template
 ```
 
-> Tant que le package n'est pas publié sur Packagist, déclarez d'abord le dépôt :
-> `composer config repositories.multilang vcs https://github.com/studioastra/multilang`
-> puis `composer require studioastra/multilang-bundle:dev-main`.
+> **Avec le starter** [`romain-genin/symfony-starter`](https://packagist.org/packages/romain-genin/symfony-starter),
+> ne lancez pas `multilang:install` : le starter fournit déjà sa configuration (voir son README, « Modules optionnels »).
+
+> **Montée de version 1.x → 2.0** : le namespace PHP devient `RomainGenin\MultiLangBundle`
+> (remplacez `StudioAstra\MultiLangBundle` dans `config/bundles.php` et dans vos `use`).
 
 ## 2. Configuration
 
@@ -103,10 +105,10 @@ controllers:
 
 ```css
 @import "tailwindcss";
-@source "../../vendor/studioastra/multilang-bundle/templates";
+@source "../../vendor/romain-genin/symfony-multilang-bundle/templates";
 
 /* optionnel : thème (mode sombre + variables documentées) */
-@import "../../vendor/studioastra/multilang-bundle/assets/multilang.css";
+@import "../../vendor/romain-genin/symfony-multilang-bundle/assets/multilang.css";
 ```
 
 Si vous n'importez pas `multilang.css`, ajoutez au moins `[x-cloak] { display: none !important; }`.
@@ -117,7 +119,7 @@ Si vous n'importez pas `multilang.css`, ajoutez au moins `[x-cloak] { display: n
 content: [
     './assets/**/*.js',
     './templates/**/*.html.twig',
-    './vendor/studioastra/multilang-bundle/templates/**/*.html.twig',
+    './vendor/romain-genin/symfony-multilang-bundle/templates/**/*.html.twig',
 ],
 ```
 
@@ -166,7 +168,7 @@ Les variantes `dropdown` et `select` ont besoin d'Alpine. La variante `list` fon
     <main id="main">{% block body %}{% endblock %}</main>
 
     <footer class="flex flex-wrap items-center justify-between gap-4 border-t px-6 py-6 text-sm">
-        <p>{{ 'footer.copyright'|trans({'%year%': 'now'|date('Y'), '%company%': 'Studio Astra'}) }}</p>
+        <p>{{ 'footer.copyright'|trans({'%year%': 'now'|date('Y'), '%company%': 'Mon entreprise'}) }}</p>
         <twig:MultiLang:LocaleSwitcher position="top" align="start" />
         {# ou : <twig:MultiLang:LocaleSwitcher variant="list" display="code" /> #}
     </footer>

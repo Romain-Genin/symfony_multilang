@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace StudioAstra\MultiLangBundle\Tests\Unit;
+namespace RomainGenin\MultiLangBundle\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use StudioAstra\MultiLangBundle\Locale\LocaleRegistry;
+use RomainGenin\MultiLangBundle\Locale\LocaleRegistry;
 
 final class LocaleRegistryTest extends TestCase
 {

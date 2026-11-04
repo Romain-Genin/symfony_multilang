@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace StudioAstra\MultiLangBundle\Tests\Unit;
+namespace RomainGenin\MultiLangBundle\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use StudioAstra\MultiLangBundle\Command\InstallCommand;
+use RomainGenin\MultiLangBundle\Command\InstallCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Component\Filesystem\Filesystem;

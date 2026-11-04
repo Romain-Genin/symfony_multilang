@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace StudioAstra\MultiLangBundle\Twig;
+namespace RomainGenin\MultiLangBundle\Twig;
 
-use StudioAstra\MultiLangBundle\Locale\Language;
-use StudioAstra\MultiLangBundle\Locale\LocaleRegistry;
-use StudioAstra\MultiLangBundle\Locale\LocaleUrlGenerator;
+use RomainGenin\MultiLangBundle\Locale\Language;
+use RomainGenin\MultiLangBundle\Locale\LocaleRegistry;
+use RomainGenin\MultiLangBundle\Locale\LocaleUrlGenerator;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Extension\AbstractExtension;

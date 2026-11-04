@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace StudioAstra\MultiLangBundle;
+namespace RomainGenin\MultiLangBundle;
 
-use StudioAstra\MultiLangBundle\Command\InstallCommand;
-use StudioAstra\MultiLangBundle\Controller\LocaleController;
-use StudioAstra\MultiLangBundle\EventSubscriber\LocaleSubscriber;
-use StudioAstra\MultiLangBundle\Locale\LanguageCatalog;
-use StudioAstra\MultiLangBundle\Locale\LocaleRegistry;
-use StudioAstra\MultiLangBundle\Locale\LocaleResolver;
-use StudioAstra\MultiLangBundle\Locale\LocaleUrlGenerator;
-use StudioAstra\MultiLangBundle\Twig\Components\LocaleSwitcher;
-use StudioAstra\MultiLangBundle\Twig\MultiLangExtension;
+use RomainGenin\MultiLangBundle\Command\InstallCommand;
+use RomainGenin\MultiLangBundle\Controller\LocaleController;
+use RomainGenin\MultiLangBundle\EventSubscriber\LocaleSubscriber;
+use RomainGenin\MultiLangBundle\Locale\LanguageCatalog;
+use RomainGenin\MultiLangBundle\Locale\LocaleRegistry;
+use RomainGenin\MultiLangBundle\Locale\LocaleResolver;
+use RomainGenin\MultiLangBundle\Locale\LocaleUrlGenerator;
+use RomainGenin\MultiLangBundle\Twig\Components\LocaleSwitcher;
+use RomainGenin\MultiLangBundle\Twig\MultiLangExtension;
 use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;

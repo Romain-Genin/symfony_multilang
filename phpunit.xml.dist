@@ -7,7 +7,7 @@
     <php>
         <ini name="error_reporting" value="-1"/>
         <server name="APP_ENV" value="test" force="true"/>
-        <server name="KERNEL_CLASS" value="StudioAstra\MultiLangBundle\Tests\Fixtures\TestKernel"/>
+        <server name="KERNEL_CLASS" value="RomainGenin\MultiLangBundle\Tests\Fixtures\TestKernel"/>
     </php>
     <testsuites>
         <testsuite name="MultiLangBundle">

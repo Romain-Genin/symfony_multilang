@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace StudioAstra\MultiLangBundle\Tests\Functional;
+namespace RomainGenin\MultiLangBundle\Tests\Functional;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\BrowserKit\Cookie;

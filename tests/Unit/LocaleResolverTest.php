@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace StudioAstra\MultiLangBundle\Tests\Unit;
+namespace RomainGenin\MultiLangBundle\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use StudioAstra\MultiLangBundle\Controller\LocaleController;
-use StudioAstra\MultiLangBundle\Locale\LocaleRegistry;
-use StudioAstra\MultiLangBundle\Locale\LocaleResolver;
+use RomainGenin\MultiLangBundle\Controller\LocaleController;
+use RomainGenin\MultiLangBundle\Locale\LocaleRegistry;
+use RomainGenin\MultiLangBundle\Locale\LocaleResolver;
 use Symfony\Component\HttpFoundation\Request;
 
 final class LocaleResolverTest extends TestCase

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace StudioAstra\MultiLangBundle\Tests\Unit;
+namespace RomainGenin\MultiLangBundle\Tests\Unit;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use StudioAstra\MultiLangBundle\MultiLangBundle;
+use RomainGenin\MultiLangBundle\MultiLangBundle;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 
 /**

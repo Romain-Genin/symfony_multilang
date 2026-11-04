@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace StudioAstra\MultiLangBundle\Locale;
+namespace RomainGenin\MultiLangBundle\Locale;
 
 /**
  * Built-in metadata for common languages (native name, English name, writing direction, default flag).

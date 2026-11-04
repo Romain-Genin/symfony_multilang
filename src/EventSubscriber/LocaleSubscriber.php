@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace StudioAstra\MultiLangBundle\EventSubscriber;
+namespace RomainGenin\MultiLangBundle\EventSubscriber;
 
-use StudioAstra\MultiLangBundle\Locale\LocaleRegistry;
-use StudioAstra\MultiLangBundle\Locale\LocaleResolver;
+use RomainGenin\MultiLangBundle\Locale\LocaleRegistry;
+use RomainGenin\MultiLangBundle\Locale\LocaleResolver;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
