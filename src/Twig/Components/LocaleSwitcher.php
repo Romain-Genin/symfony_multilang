@@ -42,6 +42,18 @@ final class LocaleSwitcher
     /** Only show these locales (defaults to all enabled locales) */
     public ?array $only = null;
 
+    /*
+     * Class overrides: when set, they REPLACE the default classes of the element.
+     * Colors can also be changed globally with the --multilang-* CSS variables.
+     */
+    public ?string $buttonClass = null;     // dropdown button
+    public ?string $menuClass = null;       // dropdown panel (positioning classes are always kept)
+    public ?string $itemClass = null;       // dropdown item
+    public ?string $itemActiveClass = null; // dropdown current item
+    public ?string $selectClass = null;     // <select>
+    public ?string $linkClass = null;       // list link
+    public ?string $linkActiveClass = null; // list current link
+
     public function __construct(
         private readonly LocaleRegistry $registry,
         private readonly LocaleUrlGenerator $urlGenerator,

@@ -1,0 +1,39 @@
+/*
+ * MultiLangBundle - theme of the LocaleSwitcher component.
+ *
+ * Optional: the component works without this file (light colors by default).
+ * Import it to get the dark mode, then override any variable after the import:
+ *
+ *     @import "../../vendor/studioastra/multilang-bundle/assets/multilang.css";
+ *     :root { --multilang-accent: #e11d48; --multilang-radius: 9999px; }
+ */
+:root {
+    --multilang-accent: #4f46e5;      /* current language, focus ring */
+    --multilang-accent-soft: #eef2ff; /* background of the current language */
+    --multilang-bg: #ffffff;          /* button, menu, select */
+    --multilang-bg-hover: #f3f4f6;    /* hovered / focused item */
+    --multilang-border: #d1d5db;
+    --multilang-text: #374151;
+    --multilang-muted: #6b7280;       /* icons, inactive links */
+    --multilang-radius: 0.5rem;       /* button, select */
+    --multilang-menu-radius: 0.5rem;  /* dropdown panel */
+}
+
+/*
+ * Dark mode: activated by a "dark" class or data-theme="dark" on <html> (or any parent).
+ * To follow the OS preference instead, copy this block inside @media (prefers-color-scheme: dark) { :root { ... } }
+ */
+.dark,
+[data-theme="dark"] {
+    --multilang-accent: #818cf8;
+    --multilang-accent-soft: rgb(99 102 241 / 0.15);
+    --multilang-bg: #1f2937;
+    --multilang-bg-hover: #374151;
+    --multilang-border: #4b5563;
+    --multilang-text: #f3f4f6;
+    --multilang-muted: #9ca3af;
+}
+
+[x-cloak] {
+    display: none !important;
+}

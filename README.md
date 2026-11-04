@@ -14,27 +14,27 @@ Prérequis : PHP 8.2+, Symfony 6.4 ou 7.x, `symfony/ux-twig-component`.
 
 ## 1. Installation
 
-Le package n'est pas sur Packagist : déclarez le dépôt dans le `composer.json` de votre application :
-
-```json
-"repositories": [
-    { "type": "vcs", "url": "https://github.com/studioastra/multilang" }
-]
+```bash
+composer require studioastra/multilang-bundle
+php bin/console multilang:install
 ```
+
+Avec Symfony Flex, `composer require` active automatiquement le bundle dans `config/bundles.php`. La commande `multilang:install` fait ensuite le reste :
+
+- crée `config/packages/multi_lang.yaml` (vos langues : `--locales=fr,en,ar`) ;
+- crée `config/routes/multilang.yaml` (redirection de `/` et route de changement de langue) ;
+- ajoute le préfixe `/{_locale}` aux routes de vos contrôleurs dans `config/routes.yaml` ;
+- avec `--template`, crée un template de surcharge prêt à personnaliser (voir [§ 6](#6-personnalisation)).
+
+Elle ne touche jamais un fichier existant, sauf avec `--force`.
 
 ```bash
-composer require studioastra/multilang-bundle:dev-main
+php bin/console multilang:install --locales=fr,en,ar --default=fr --template
 ```
 
-Si Flex ne l'a pas fait, activez le bundle dans `config/bundles.php` :
-
-```php
-return [
-    // ...
-    Symfony\UX\TwigComponent\TwigComponentBundle::class => ['all' => true],
-    StudioAstra\MultiLangBundle\MultiLangBundle::class => ['all' => true],
-];
-```
+> Tant que le package n'est pas publié sur Packagist, déclarez d'abord le dépôt :
+> `composer config repositories.multilang vcs https://github.com/studioastra/multilang`
+> puis `composer require studioastra/multilang-bundle:dev-main`.
 
 ## 2. Configuration
 
@@ -105,8 +105,11 @@ controllers:
 @import "tailwindcss";
 @source "../../vendor/studioastra/multilang-bundle/templates";
 
-[x-cloak] { display: none !important; }
+/* optionnel : thème (mode sombre + variables documentées) */
+@import "../../vendor/studioastra/multilang-bundle/assets/multilang.css";
 ```
+
+Si vous n'importez pas `multilang.css`, ajoutez au moins `[x-cloak] { display: none !important; }`.
 
 **Tailwind v3** : dans `tailwind.config.js`, ajoutez :
 
@@ -184,6 +187,7 @@ Les variantes `dropdown` et `select` ont besoin d'Alpine. La variante `list` fon
 | `align` | `end`, `start` | `end` | alignement logique : s'inverse en RTL |
 | `only` | liste de codes | toutes | `:only="['fr', 'en']"` |
 | `class`, `id`, … | | | attributs HTML fusionnés sur l'élément racine |
+| `buttonClass`, `menuClass`, `itemClass`, `itemActiveClass`, `selectClass`, `linkClass`, `linkActiveClass` | classes | | **remplacent** les classes par défaut de cet élément (voir § 6) |
 
 ```twig
 <twig:MultiLang:LocaleSwitcher />
@@ -194,7 +198,6 @@ Les variantes `dropdown` et `select` ont besoin d'Alpine. La variante `list` fon
 
 Le dropdown gère `↑`/`↓`, `Home`/`End`, `Échap`, le clic à l'extérieur et la sortie du focus, et expose `aria-expanded` et `aria-current`. Chaque nom de langue est isolé dans un `<bdi lang="…">`, ce qui affiche correctement « العربية » dans une page LTR et « Français » dans une page RTL.
 
-Pour personnaliser le HTML, copiez le template dans `templates/bundles/MultiLangBundle/components/LocaleSwitcher.html.twig`.
 
 ### Fonctions Twig
 
@@ -216,7 +219,84 @@ Préférez les utilitaires logiques, qui suivent `dir` automatiquement : `ms-*`/
 <svg class="rtl:-scale-x-100">…flèche « suivant »…</svg>
 ```
 
-## 6. Traductions fournies
+## 6. Personnalisation
+
+Trois niveaux, du plus léger au plus complet. Aucun ne modifie le dossier `vendor/` : vous gardez les mises à jour du bundle.
+
+### Niveau 1 : couleurs et arrondis (variables CSS)
+
+Toutes les couleurs du composant passent par des variables CSS, avec des valeurs par défaut. Il suffit de les redéfinir dans votre CSS :
+
+```css
+/* assets/styles/app.css */
+:root {
+    --multilang-accent: #e11d48;      /* langue active, anneau de focus */
+    --multilang-accent-soft: #fff1f2; /* fond de la langue active */
+    --multilang-bg: #ffffff;          /* bouton, menu, select */
+    --multilang-bg-hover: #f3f4f6;
+    --multilang-border: #e5e7eb;
+    --multilang-text: #111827;
+    --multilang-muted: #6b7280;       /* icônes, liens inactifs */
+    --multilang-radius: 9999px;       /* bouton et select en « pilule » */
+    --multilang-menu-radius: 0.75rem; /* menu déroulant */
+}
+.dark { --multilang-bg: #111827; /* ... */ }
+```
+
+En important `assets/multilang.css`, vous obtenez en plus un thème sombre, activé par la classe `dark` ou par `data-theme="dark"` sur `<html>`.
+
+### Niveau 2 : classes d'un élément (props)
+
+Pour changer complètement le style d'un élément, passez vos propres classes Tailwind. Elles **remplacent** celles par défaut, donc pas de conflit entre classes :
+
+```twig
+<twig:MultiLang:LocaleSwitcher
+    buttonClass="inline-flex items-center gap-2 rounded-full bg-black px-4 py-2 text-white"
+    itemActiveClass="flex w-full items-center gap-2 px-4 py-2 font-bold text-rose-600"
+/>
+```
+
+Les classes de positionnement du menu (`absolute`, `top-full`, `end-0`…) sont toujours conservées.
+
+### Niveau 3 : HTML (surcharge de blocs Twig)
+
+```bash
+php bin/console multilang:install --template
+```
+
+Cette commande crée `templates/bundles/MultiLangBundle/components/LocaleSwitcher.html.twig`, qui **étend** le template du bundle. Vous ne redéfinissez que les blocs voulus, et le reste continue de suivre les mises à jour du bundle :
+
+```twig
+{% extends '@!MultiLang/components/LocaleSwitcher.html.twig' %}
+
+{# remplace le globe par le code de la langue #}
+{% block multilang_button_icon %}
+    <span class="text-xs font-bold uppercase">{{ this.current.code }}</span>
+{% endblock %}
+
+{# ajoute le nom anglais sous chaque langue #}
+{% block multilang_item %}
+    {{ parent() }}
+    <span class="text-xs opacity-60">{{ option.language.englishName }}</span>
+{% endblock %}
+```
+
+| Bloc | Contenu |
+|---|---|
+| `multilang_dropdown` | tout le dropdown |
+| `multilang_button` | contenu du bouton : `multilang_button_icon`, drapeau, libellé, `multilang_button_chevron` |
+| `multilang_item` | contenu d'une entrée du menu (`option.language`, `option.url`, `option.current`, `option.label`) |
+| `multilang_select` / `multilang_select_option` | variante `select` / texte d'une `<option>` |
+| `multilang_list` / `multilang_list_item` | variante `list` / contenu d'un lien |
+
+Pour tout réécrire, ne mettez pas de `{% extends %}` : votre fichier remplace alors entièrement celui du bundle. Vous pouvez aussi écrire votre propre composant avec les [fonctions Twig](#fonctions-twig).
+
+### Traductions et langues
+
+- **Modifier une traduction** : redéfinissez la clé dans `translations/messages.{locale}.yaml` de votre application (prioritaire sur le bundle). Les libellés du sélecteur sont dans le domaine `multilang`.
+- **Nom, drapeau ou sens d'une langue** : `multi_lang.locale_overrides` (voir § 2).
+
+## 7. Traductions fournies
 
 Domaine `messages` (dans `resources/translations/`, chargé si `load_default_translations: true`) :
 
@@ -244,7 +324,7 @@ nav:
 
 **Ajouter une langue** : ajoutez son code à `multi_lang.locales` (par exemple `pl` ou `pt_BR`) et créez `translations/messages.pl.yaml`. Le nom natif, le drapeau et le sens d'écriture viennent du catalogue intégré, qui couvre une trentaine de langues ; sinon, renseignez-les avec `locale_overrides`.
 
-## 7. Tests
+## 8. Tests
 
 ```bash
 composer install
