@@ -1,0 +1,91 @@
+# MultiLangBundle - messages - 中文 (zh)
+# Override any key in your app: translations/messages.zh.yaml
+
+nav:
+    home: "首页"
+    about: "关于我们"
+    services: "服务"
+    products: "产品"
+    blog: "博客"
+    contact: "联系我们"
+    faq: "常见问题"
+    menu: "菜单"
+    open_menu: "打开菜单"
+    close_menu: "关闭菜单"
+    skip_to_content: "跳到主要内容"
+    search: "搜索"
+
+search:
+    placeholder: "搜索…"
+    no_results: "未找到结果"
+    results_for: "“%query%”的搜索结果"
+
+action:
+    submit: "提交"
+    send: "发送"
+    cancel: "取消"
+    save: "保存"
+    delete: "删除"
+    edit: "编辑"
+    confirm: "确认"
+    back: "返回"
+    next: "下一步"
+    previous: "上一步"
+    close: "关闭"
+    read_more: "阅读更多"
+    learn_more: "了解更多"
+    see_all: "查看全部"
+    download: "下载"
+    subscribe: "订阅"
+
+auth:
+    login: "登录"
+    logout: "退出登录"
+    register: "注册"
+    my_account: "我的账户"
+    forgot_password: "忘记密码？"
+    remember_me: "记住我"
+
+form:
+    name: "姓名"
+    first_name: "名"
+    last_name: "姓"
+    email: "电子邮箱"
+    phone: "电话"
+    subject: "主题"
+    message: "留言"
+    password: "密码"
+    required: "此字段为必填项。"
+    invalid_email: "请输入有效的电子邮箱地址。"
+    success: "您的留言已发送。"
+    error: "发生错误，请重试。"
+
+footer:
+    legal_notice: "法律声明"
+    privacy_policy: "隐私政策"
+    terms: "条款和条件"
+    cookie_policy: "Cookie 政策"
+    sitemap: "网站地图"
+    copyright: "© %year% %company%. 保留所有权利。"
+    follow_us: "关注我们"
+    newsletter_title: "电子报"
+    newsletter_text: "将最新资讯直接发送到您的邮箱。"
+
+cookies:
+    message: "本网站使用 Cookie 以改善您的体验。"
+    accept: "全部接受"
+    reject: "全部拒绝"
+    customize: "自定义"
+
+error:
+    404_title: "页面未找到"
+    404_text: "您要查找的页面不存在或已被移动。"
+    500_title: "服务器错误"
+    500_text: "发生意外错误，请稍后重试。"
+    back_home: "返回首页"
+
+common:
+    loading: "加载中…"
+    language: "语言"
+    yes: "是"
+    no: "否"

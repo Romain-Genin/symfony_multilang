@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html {{ multilang_html_attributes() }}>
+<head>
+    {{ multilang_alternate_links() }}
+</head>
+<body>
+    <h1 id="title">{{ 'nav.home'|trans }}</h1>
+    <p id="dir">{{ multilang_dir() }}</p>
+    <header><twig:MultiLang:LocaleSwitcher id="dropdown" showFlags /></header>
+    <div id="select-wrapper"><twig:MultiLang:LocaleSwitcher variant="select" /></div>
+    <footer><twig:MultiLang:LocaleSwitcher id="list" variant="list" display="code" /></footer>
+</body>
+</html>

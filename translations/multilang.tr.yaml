@@ -1,0 +1,6 @@
+# MultiLangBundle - multilang - Türkçe (tr)
+# Override any key in your app: translations/multilang.tr.yaml
+
+switcher:
+    label: "Dili değiştir"
+    current: "Geçerli dil: %language%"

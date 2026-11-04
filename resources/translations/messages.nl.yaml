@@ -1,0 +1,91 @@
+# MultiLangBundle - messages - Nederlands (nl)
+# Override any key in your app: translations/messages.nl.yaml
+
+nav:
+    home: "Home"
+    about: "Over ons"
+    services: "Diensten"
+    products: "Producten"
+    blog: "Blog"
+    contact: "Contact"
+    faq: "Veelgestelde vragen"
+    menu: "Menu"
+    open_menu: "Menu openen"
+    close_menu: "Menu sluiten"
+    skip_to_content: "Naar inhoud gaan"
+    search: "Zoeken"
+
+search:
+    placeholder: "Zoeken…"
+    no_results: "Geen resultaten gevonden"
+    results_for: "Resultaten voor \"%query%\""
+
+action:
+    submit: "Verzenden"
+    send: "Versturen"
+    cancel: "Annuleren"
+    save: "Opslaan"
+    delete: "Verwijderen"
+    edit: "Bewerken"
+    confirm: "Bevestigen"
+    back: "Terug"
+    next: "Volgende"
+    previous: "Vorige"
+    close: "Sluiten"
+    read_more: "Lees meer"
+    learn_more: "Meer informatie"
+    see_all: "Alles bekijken"
+    download: "Downloaden"
+    subscribe: "Abonneren"
+
+auth:
+    login: "Inloggen"
+    logout: "Uitloggen"
+    register: "Registreren"
+    my_account: "Mijn account"
+    forgot_password: "Wachtwoord vergeten?"
+    remember_me: "Onthoud mij"
+
+form:
+    name: "Naam"
+    first_name: "Voornaam"
+    last_name: "Achternaam"
+    email: "E-mailadres"
+    phone: "Telefoon"
+    subject: "Onderwerp"
+    message: "Bericht"
+    password: "Wachtwoord"
+    required: "Dit veld is verplicht."
+    invalid_email: "Voer een geldig e-mailadres in."
+    success: "Uw bericht is verzonden."
+    error: "Er is een fout opgetreden. Probeer het opnieuw."
+
+footer:
+    legal_notice: "Colofon"
+    privacy_policy: "Privacybeleid"
+    terms: "Algemene voorwaarden"
+    cookie_policy: "Cookiebeleid"
+    sitemap: "Sitemap"
+    copyright: "© %year% %company%. Alle rechten voorbehouden."
+    follow_us: "Volg ons"
+    newsletter_title: "Nieuwsbrief"
+    newsletter_text: "Ontvang ons laatste nieuws direct in je inbox."
+
+cookies:
+    message: "Deze website gebruikt cookies om je ervaring te verbeteren."
+    accept: "Alles accepteren"
+    reject: "Alles weigeren"
+    customize: "Aanpassen"
+
+error:
+    404_title: "Pagina niet gevonden"
+    404_text: "De pagina die je zoekt bestaat niet of is verplaatst."
+    500_title: "Serverfout"
+    500_text: "Er is een onverwachte fout opgetreden. Probeer het later opnieuw."
+    back_home: "Terug naar home"
+
+common:
+    loading: "Laden…"
+    language: "Taal"
+    yes: "Ja"
+    no: "Nee"

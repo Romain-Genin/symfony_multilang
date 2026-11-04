@@ -1,0 +1,91 @@
+# MultiLangBundle - messages - עברית (he)
+# Override any key in your app: translations/messages.he.yaml
+
+nav:
+    home: "דף הבית"
+    about: "אודות"
+    services: "שירותים"
+    products: "מוצרים"
+    blog: "בלוג"
+    contact: "צור קשר"
+    faq: "שאלות נפוצות"
+    menu: "תפריט"
+    open_menu: "פתיחת תפריט"
+    close_menu: "סגירת תפריט"
+    skip_to_content: "דילוג לתוכן"
+    search: "חיפוש"
+
+search:
+    placeholder: "חיפוש…"
+    no_results: "לא נמצאו תוצאות"
+    results_for: "תוצאות עבור \"%query%\""
+
+action:
+    submit: "שליחה"
+    send: "שלח"
+    cancel: "ביטול"
+    save: "שמירה"
+    delete: "מחיקה"
+    edit: "עריכה"
+    confirm: "אישור"
+    back: "חזרה"
+    next: "הבא"
+    previous: "הקודם"
+    close: "סגירה"
+    read_more: "קרא עוד"
+    learn_more: "מידע נוסף"
+    see_all: "הצג הכול"
+    download: "הורדה"
+    subscribe: "הרשמה"
+
+auth:
+    login: "התחברות"
+    logout: "התנתקות"
+    register: "הרשמה"
+    my_account: "החשבון שלי"
+    forgot_password: "שכחת את הסיסמה?"
+    remember_me: "זכור אותי"
+
+form:
+    name: "שם"
+    first_name: "שם פרטי"
+    last_name: "שם משפחה"
+    email: "כתובת אימייל"
+    phone: "טלפון"
+    subject: "נושא"
+    message: "הודעה"
+    password: "סיסמה"
+    required: "זהו שדה חובה."
+    invalid_email: "נא להזין כתובת אימייל תקינה."
+    success: "ההודעה שלך נשלחה בהצלחה."
+    error: "אירעה שגיאה. נא לנסות שוב."
+
+footer:
+    legal_notice: "מידע משפטי"
+    privacy_policy: "מדיניות פרטיות"
+    terms: "תנאי שימוש"
+    cookie_policy: "מדיניות עוגיות"
+    sitemap: "מפת האתר"
+    copyright: "© %year% %company%. כל הזכויות שמורות."
+    follow_us: "עקבו אחרינו"
+    newsletter_title: "ניוזלטר"
+    newsletter_text: "קבלו את העדכונים האחרונים שלנו ישירות לתיבת הדואר."
+
+cookies:
+    message: "אתר זה משתמש בעוגיות כדי לשפר את החוויה שלך."
+    accept: "אישור הכול"
+    reject: "דחיית הכול"
+    customize: "התאמה אישית"
+
+error:
+    404_title: "הדף לא נמצא"
+    404_text: "הדף שחיפשת אינו קיים או שהועבר."
+    500_title: "שגיאת שרת"
+    500_text: "אירעה שגיאה בלתי צפויה. נא לנסות שוב מאוחר יותר."
+    back_home: "חזרה לדף הבית"
+
+common:
+    loading: "טוען…"
+    language: "שפה"
+    yes: "כן"
+    no: "לא"

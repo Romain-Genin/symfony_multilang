@@ -1,0 +1,6 @@
+# MultiLangBundle - multilang - Français (fr)
+# Override any key in your app: translations/multilang.fr.yaml
+
+switcher:
+    label: "Changer de langue"
+    current: "Langue actuelle : %language%"

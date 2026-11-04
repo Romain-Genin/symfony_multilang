@@ -1,0 +1,91 @@
+# MultiLangBundle - messages - Português (pt)
+# Override any key in your app: translations/messages.pt.yaml
+
+nav:
+    home: "Início"
+    about: "Sobre nós"
+    services: "Serviços"
+    products: "Produtos"
+    blog: "Blog"
+    contact: "Contacto"
+    faq: "Perguntas frequentes"
+    menu: "Menu"
+    open_menu: "Abrir menu"
+    close_menu: "Fechar menu"
+    skip_to_content: "Ir para o conteúdo"
+    search: "Pesquisar"
+
+search:
+    placeholder: "Pesquisar…"
+    no_results: "Nenhum resultado encontrado"
+    results_for: "Resultados para «%query%»"
+
+action:
+    submit: "Submeter"
+    send: "Enviar"
+    cancel: "Cancelar"
+    save: "Guardar"
+    delete: "Eliminar"
+    edit: "Editar"
+    confirm: "Confirmar"
+    back: "Voltar"
+    next: "Seguinte"
+    previous: "Anterior"
+    close: "Fechar"
+    read_more: "Ler mais"
+    learn_more: "Saiba mais"
+    see_all: "Ver tudo"
+    download: "Descarregar"
+    subscribe: "Subscrever"
+
+auth:
+    login: "Iniciar sessão"
+    logout: "Terminar sessão"
+    register: "Registar-se"
+    my_account: "A minha conta"
+    forgot_password: "Esqueceu-se da palavra-passe?"
+    remember_me: "Lembrar-me"
+
+form:
+    name: "Nome"
+    first_name: "Nome próprio"
+    last_name: "Apelido"
+    email: "Endereço de e-mail"
+    phone: "Telefone"
+    subject: "Assunto"
+    message: "Mensagem"
+    password: "Palavra-passe"
+    required: "Este campo é obrigatório."
+    invalid_email: "Introduza um endereço de e-mail válido."
+    success: "A sua mensagem foi enviada."
+    error: "Ocorreu um erro. Tente novamente."
+
+footer:
+    legal_notice: "Aviso legal"
+    privacy_policy: "Política de privacidade"
+    terms: "Termos e condições"
+    cookie_policy: "Política de cookies"
+    sitemap: "Mapa do site"
+    copyright: "© %year% %company%. Todos os direitos reservados."
+    follow_us: "Siga-nos"
+    newsletter_title: "Newsletter"
+    newsletter_text: "Receba as nossas novidades diretamente no seu e-mail."
+
+cookies:
+    message: "Este site utiliza cookies para melhorar a sua experiência."
+    accept: "Aceitar tudo"
+    reject: "Rejeitar tudo"
+    customize: "Personalizar"
+
+error:
+    404_title: "Página não encontrada"
+    404_text: "A página que procura não existe ou foi movida."
+    500_title: "Erro do servidor"
+    500_text: "Ocorreu um erro inesperado. Tente novamente mais tarde."
+    back_home: "Voltar ao início"
+
+common:
+    loading: "A carregar…"
+    language: "Idioma"
+    yes: "Sim"
+    no: "Não"

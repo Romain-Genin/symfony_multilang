@@ -1,0 +1,91 @@
+# MultiLangBundle - messages - Deutsch (de)
+# Override any key in your app: translations/messages.de.yaml
+
+nav:
+    home: "Startseite"
+    about: "Über uns"
+    services: "Leistungen"
+    products: "Produkte"
+    blog: "Blog"
+    contact: "Kontakt"
+    faq: "FAQ"
+    menu: "Menü"
+    open_menu: "Menü öffnen"
+    close_menu: "Menü schließen"
+    skip_to_content: "Zum Inhalt springen"
+    search: "Suchen"
+
+search:
+    placeholder: "Suchen…"
+    no_results: "Keine Ergebnisse gefunden"
+    results_for: "Ergebnisse für „%query%“"
+
+action:
+    submit: "Absenden"
+    send: "Senden"
+    cancel: "Abbrechen"
+    save: "Speichern"
+    delete: "Löschen"
+    edit: "Bearbeiten"
+    confirm: "Bestätigen"
+    back: "Zurück"
+    next: "Weiter"
+    previous: "Vorherige"
+    close: "Schließen"
+    read_more: "Weiterlesen"
+    learn_more: "Mehr erfahren"
+    see_all: "Alle anzeigen"
+    download: "Herunterladen"
+    subscribe: "Abonnieren"
+
+auth:
+    login: "Anmelden"
+    logout: "Abmelden"
+    register: "Registrieren"
+    my_account: "Mein Konto"
+    forgot_password: "Passwort vergessen?"
+    remember_me: "Angemeldet bleiben"
+
+form:
+    name: "Name"
+    first_name: "Vorname"
+    last_name: "Nachname"
+    email: "E-Mail-Adresse"
+    phone: "Telefon"
+    subject: "Betreff"
+    message: "Nachricht"
+    password: "Passwort"
+    required: "Dieses Feld ist erforderlich."
+    invalid_email: "Bitte geben Sie eine gültige E-Mail-Adresse ein."
+    success: "Ihre Nachricht wurde gesendet."
+    error: "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+
+footer:
+    legal_notice: "Impressum"
+    privacy_policy: "Datenschutzerklärung"
+    terms: "AGB"
+    cookie_policy: "Cookie-Richtlinie"
+    sitemap: "Sitemap"
+    copyright: "© %year% %company%. Alle Rechte vorbehalten."
+    follow_us: "Folgen Sie uns"
+    newsletter_title: "Newsletter"
+    newsletter_text: "Erhalten Sie unsere neuesten Nachrichten direkt in Ihr Postfach."
+
+cookies:
+    message: "Diese Website verwendet Cookies, um Ihr Erlebnis zu verbessern."
+    accept: "Alle akzeptieren"
+    reject: "Alle ablehnen"
+    customize: "Anpassen"
+
+error:
+    404_title: "Seite nicht gefunden"
+    404_text: "Die gesuchte Seite existiert nicht oder wurde verschoben."
+    500_title: "Serverfehler"
+    500_text: "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut."
+    back_home: "Zur Startseite"
+
+common:
+    loading: "Wird geladen…"
+    language: "Sprache"
+    yes: "Ja"
+    no: "Nein"

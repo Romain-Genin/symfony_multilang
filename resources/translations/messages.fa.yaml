@@ -1,0 +1,91 @@
+# MultiLangBundle - messages - فارسی (fa)
+# Override any key in your app: translations/messages.fa.yaml
+
+nav:
+    home: "خانه"
+    about: "درباره ما"
+    services: "خدمات"
+    products: "محصولات"
+    blog: "وبلاگ"
+    contact: "تماس با ما"
+    faq: "سوالات متداول"
+    menu: "منو"
+    open_menu: "باز کردن منو"
+    close_menu: "بستن منو"
+    skip_to_content: "رفتن به محتوا"
+    search: "جستجو"
+
+search:
+    placeholder: "جستجو…"
+    no_results: "نتیجه‌ای یافت نشد"
+    results_for: "نتایج برای «%query%»"
+
+action:
+    submit: "ثبت"
+    send: "ارسال"
+    cancel: "لغو"
+    save: "ذخیره"
+    delete: "حذف"
+    edit: "ویرایش"
+    confirm: "تأیید"
+    back: "بازگشت"
+    next: "بعدی"
+    previous: "قبلی"
+    close: "بستن"
+    read_more: "ادامه مطلب"
+    learn_more: "بیشتر بدانید"
+    see_all: "مشاهده همه"
+    download: "دانلود"
+    subscribe: "عضویت"
+
+auth:
+    login: "ورود"
+    logout: "خروج"
+    register: "ثبت‌نام"
+    my_account: "حساب من"
+    forgot_password: "رمز عبور را فراموش کرده‌اید؟"
+    remember_me: "مرا به خاطر بسپار"
+
+form:
+    name: "نام"
+    first_name: "نام"
+    last_name: "نام خانوادگی"
+    email: "ایمیل"
+    phone: "تلفن"
+    subject: "موضوع"
+    message: "پیام"
+    password: "رمز عبور"
+    required: "این فیلد الزامی است."
+    invalid_email: "لطفاً یک ایمیل معتبر وارد کنید."
+    success: "پیام شما با موفقیت ارسال شد."
+    error: "خطایی رخ داد. لطفاً دوباره تلاش کنید."
+
+footer:
+    legal_notice: "اطلاعات حقوقی"
+    privacy_policy: "سیاست حفظ حریم خصوصی"
+    terms: "شرایط و قوانین"
+    cookie_policy: "سیاست کوکی‌ها"
+    sitemap: "نقشه سایت"
+    copyright: "© %year% %company%. تمامی حقوق محفوظ است."
+    follow_us: "ما را دنبال کنید"
+    newsletter_title: "خبرنامه"
+    newsletter_text: "آخرین اخبار ما را مستقیماً در ایمیل خود دریافت کنید."
+
+cookies:
+    message: "این وب‌سایت برای بهبود تجربه شما از کوکی استفاده می‌کند."
+    accept: "پذیرش همه"
+    reject: "رد همه"
+    customize: "سفارشی‌سازی"
+
+error:
+    404_title: "صفحه پیدا نشد"
+    404_text: "صفحه‌ای که به دنبال آن هستید وجود ندارد یا منتقل شده است."
+    500_title: "خطای سرور"
+    500_text: "خطای غیرمنتظره‌ای رخ داد. لطفاً بعداً دوباره تلاش کنید."
+    back_home: "بازگشت به خانه"
+
+common:
+    loading: "در حال بارگذاری…"
+    language: "زبان"
+    yes: "بله"
+    no: "خیر"

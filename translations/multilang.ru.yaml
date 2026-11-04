@@ -1,0 +1,6 @@
+# MultiLangBundle - multilang - Русский (ru)
+# Override any key in your app: translations/multilang.ru.yaml
+
+switcher:
+    label: "Сменить язык"
+    current: "Текущий язык: %language%"

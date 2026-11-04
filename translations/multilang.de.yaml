@@ -1,0 +1,6 @@
+# MultiLangBundle - multilang - Deutsch (de)
+# Override any key in your app: translations/multilang.de.yaml
+
+switcher:
+    label: "Sprache ändern"
+    current: "Aktuelle Sprache: %language%"

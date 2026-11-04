@@ -1,0 +1,91 @@
+# MultiLangBundle - messages - Italiano (it)
+# Override any key in your app: translations/messages.it.yaml
+
+nav:
+    home: "Home"
+    about: "Chi siamo"
+    services: "Servizi"
+    products: "Prodotti"
+    blog: "Blog"
+    contact: "Contatti"
+    faq: "Domande frequenti"
+    menu: "Menu"
+    open_menu: "Apri menu"
+    close_menu: "Chiudi menu"
+    skip_to_content: "Vai al contenuto"
+    search: "Cerca"
+
+search:
+    placeholder: "Cerca…"
+    no_results: "Nessun risultato trovato"
+    results_for: "Risultati per «%query%»"
+
+action:
+    submit: "Invia"
+    send: "Invia"
+    cancel: "Annulla"
+    save: "Salva"
+    delete: "Elimina"
+    edit: "Modifica"
+    confirm: "Conferma"
+    back: "Indietro"
+    next: "Avanti"
+    previous: "Precedente"
+    close: "Chiudi"
+    read_more: "Leggi di più"
+    learn_more: "Scopri di più"
+    see_all: "Vedi tutto"
+    download: "Scarica"
+    subscribe: "Iscriviti"
+
+auth:
+    login: "Accedi"
+    logout: "Esci"
+    register: "Registrati"
+    my_account: "Il mio account"
+    forgot_password: "Password dimenticata?"
+    remember_me: "Ricordami"
+
+form:
+    name: "Nome"
+    first_name: "Nome"
+    last_name: "Cognome"
+    email: "Indirizzo email"
+    phone: "Telefono"
+    subject: "Oggetto"
+    message: "Messaggio"
+    password: "Password"
+    required: "Questo campo è obbligatorio."
+    invalid_email: "Inserisci un indirizzo email valido."
+    success: "Il tuo messaggio è stato inviato."
+    error: "Si è verificato un errore. Riprova."
+
+footer:
+    legal_notice: "Note legali"
+    privacy_policy: "Informativa sulla privacy"
+    terms: "Termini e condizioni"
+    cookie_policy: "Cookie policy"
+    sitemap: "Mappa del sito"
+    copyright: "© %year% %company%. Tutti i diritti riservati."
+    follow_us: "Seguici"
+    newsletter_title: "Newsletter"
+    newsletter_text: "Ricevi le nostre ultime novità direttamente nella tua casella email."
+
+cookies:
+    message: "Questo sito utilizza i cookie per migliorare la tua esperienza."
+    accept: "Accetta tutto"
+    reject: "Rifiuta tutto"
+    customize: "Personalizza"
+
+error:
+    404_title: "Pagina non trovata"
+    404_text: "La pagina che stai cercando non esiste o è stata spostata."
+    500_title: "Errore del server"
+    500_text: "Si è verificato un errore imprevisto. Riprova più tardi."
+    back_home: "Torna alla home"
+
+common:
+    loading: "Caricamento…"
+    language: "Lingua"
+    yes: "Sì"
+    no: "No"

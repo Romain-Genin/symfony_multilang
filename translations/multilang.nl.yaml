@@ -1,0 +1,6 @@
+# MultiLangBundle - multilang - Nederlands (nl)
+# Override any key in your app: translations/multilang.nl.yaml
+
+switcher:
+    label: "Taal wijzigen"
+    current: "Huidige taal: %language%"

@@ -1,0 +1,6 @@
+# MultiLangBundle - multilang - فارسی (fa)
+# Override any key in your app: translations/multilang.fa.yaml
+
+switcher:
+    label: "تغییر زبان"
+    current: "زبان فعلی: %language%"
