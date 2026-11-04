@@ -1,5 +1,5 @@
 {
-    "name": "studioastra/multilang-bundle",
+    "name": "romain-genin/symfony-multilang-bundle",
     "description": "Symfony bundle for multilingual sites: pre-filled translations (14 languages), LTR/RTL handling, locale-prefixed URLs and a Tailwind + Alpine.js language switcher Twig component.",
     "type": "symfony-bundle",
     "license": "MIT",
